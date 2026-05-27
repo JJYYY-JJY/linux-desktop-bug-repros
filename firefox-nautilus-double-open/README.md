@@ -116,8 +116,17 @@ ShowItems with 1000ms timeout: Timeout was reached, elapsed=0:01.06
 ShowItems with 5000ms timeout: success, elapsed=0:00.27
 ```
 
-This supports the workaround direction. The Firefox download-panel end-to-end
-test still requires restarting Firefox so the profile `user.js` pref is loaded.
+The Firefox-side reveal path was also validated by starting Firefox with the
+default profile, using Marionette chrome context to call `nsIFile.reveal()` on a
+downloaded test file, and checking the journal:
+
+```text
+Firefox pref returned by chrome script: 5000
+journal after reveal: FileManager1 and Nautilus started; no Firefox ShowItems timeout
+```
+
+This validates that the local Firefox profile loaded the workaround and that
+Firefox no longer takes the timeout fallback path for this reveal operation.
 
 ## Upstream Status
 
@@ -126,5 +135,5 @@ test still requires restarting Firefox so the profile `user.js` pref is loaded.
 - GitHub tracking issue:
   <https://github.com/JJYYY-JJY/linux-desktop-bug-repros/issues/1>
 - Local workaround: configured with
-  `widget.gtk.file-manager-show-items-timeout-ms = 5000`; D-Bus mechanism
-  validated, Firefox end-to-end validation pending restart
+  `widget.gtk.file-manager-show-items-timeout-ms = 5000`; D-Bus mechanism and
+  Firefox `nsIFile.reveal()` path validated
