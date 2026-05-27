@@ -107,6 +107,18 @@ user_pref("widget.gtk.file-manager-show-items-timeout-ms", 5000);
 After changing the preference, restart Firefox and test the cold-start
 reproduction steps again.
 
+## Local Validation
+
+The underlying D-Bus behavior was validated locally with a cold Nautilus start:
+
+```text
+ShowItems with 1000ms timeout: Timeout was reached, elapsed=0:01.06
+ShowItems with 5000ms timeout: success, elapsed=0:00.27
+```
+
+This supports the workaround direction. The Firefox download-panel end-to-end
+test still requires restarting Firefox so the profile `user.js` pref is loaded.
+
 ## Upstream Status
 
 - Mozilla Bugzilla: submitted as a comment on
@@ -114,5 +126,5 @@ reproduction steps again.
 - GitHub tracking issue:
   <https://github.com/JJYYY-JJY/linux-desktop-bug-repros/issues/1>
 - Local workaround: configured with
-  `widget.gtk.file-manager-show-items-timeout-ms = 5000`; pending validation
-  after Firefox restart
+  `widget.gtk.file-manager-show-items-timeout-ms = 5000`; D-Bus mechanism
+  validated, Firefox end-to-end validation pending restart
