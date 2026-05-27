@@ -109,7 +109,8 @@ reproduction steps again.
 
 ## Upstream Status
 
-- Mozilla Bugzilla: pending
+- Mozilla Bugzilla: submitted as a comment on
+  [Bug 776866, comment 13](https://bugzilla.mozilla.org/show_bug.cgi?id=776866#c13)
 - GitHub tracking issue:
   <https://github.com/JJYYY-JJY/linux-desktop-bug-repros/issues/1>
 - Local workaround: configured with
