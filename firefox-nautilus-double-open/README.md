@@ -110,5 +110,8 @@ reproduction steps again.
 ## Upstream Status
 
 - Mozilla Bugzilla: pending
-- Local workaround: pending validation
-
+- GitHub tracking issue:
+  <https://github.com/JJYYY-JJY/linux-desktop-bug-repros/issues/1>
+- Local workaround: configured with
+  `widget.gtk.file-manager-show-items-timeout-ms = 5000`; pending validation
+  after Firefox restart
